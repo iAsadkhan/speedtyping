@@ -27,11 +27,6 @@ function Speedtyping()
         wordcount("")
     }
     
-    function endGame() {
-        gameIsStarted(false)
-        setFinalAnswer(countword(word))
-    }
-    
         useEffect(() => {
             if( gamestart && time > 0) {
                 setTimeout(() => {
@@ -40,7 +35,8 @@ function Speedtyping()
             }
             
             else if(time=== 0) {
-              endGame()
+              gameIsStarted(false)
+        setFinalAnswer(countword(word))
             }
         }, [time,gamestart] )
 
