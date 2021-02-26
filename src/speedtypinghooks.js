@@ -1,4 +1,4 @@
-import React , {useState,useEffect} from 'react'
+import React , {useState,useEffect,useRef} from 'react'
 import './speedtyping.css'
 
 function Speedtyping()
@@ -8,6 +8,7 @@ function Speedtyping()
     const [time, timer]=useState(STARTING_TIME)
     const [gamestart,gameIsStarted] = useState(false)
     const[finalAnswer,setFinalAnswer]=useState(0)
+    const textBoxRef = useRef(null)
 
    function handlechange(e)
     {
@@ -25,6 +26,8 @@ function Speedtyping()
         gameIsStarted(true)
         timer(STARTING_TIME)
         wordcount("")
+        textBoxRef.current.disabled = false
+        textBoxRef.current.focus()
     }
     
         useEffect(() => {
@@ -48,6 +51,7 @@ function Speedtyping()
            <h1>Speed typing</h1>
         </div>
             <textarea className="area"
+        ref={textBoxRef}
             value={word}
             onChange={handlechange}
             disabled={!gamestart}>
