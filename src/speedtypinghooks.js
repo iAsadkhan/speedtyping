@@ -39,6 +39,7 @@ function Speedtyping()
             
             else if(time=== 0) {
               gameIsStarted(false)
+                // eslint-disable-next-line react-hooks/exhaustive-deps 
         setFinalAnswer(countword(word))
             }
         }, [time,gamestart] )
